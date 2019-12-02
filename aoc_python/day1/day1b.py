@@ -1,18 +1,16 @@
 def calculate_fuel(data):
-    return int(data)//3-2
+	return int(data)//3-2
 
 def main():
-	f = open("day1.txt")
-	fuel = f.readline()
+	data = open("day1.txt").readlines()
 	total_fuel = 0
-	while (fuel != ""):
+	for fuel in data:
 		sub_total=0
 		next_fuel = calculate_fuel(fuel)
 		while (next_fuel>0):
 			sub_total += next_fuel
 			next_fuel = calculate_fuel(next_fuel)
 		total_fuel +=sub_total
-		fuel = f.readline()
 	print (total_fuel)
 
 main()
